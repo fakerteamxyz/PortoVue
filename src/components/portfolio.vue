@@ -25,58 +25,13 @@
         </div>
         <div class="gallery">
             <div>
-                <a href="https://mangjasa.com/" target="_blank">
-                    <img src="../assets/mangjasa_box.png" alt="" />
+                <a href="#" target="_blank">
+                    <img src="../assets/fakertype.png" alt="Fakertype Project" />
                 </a>
             </div>
             <div>
-                <a
-                    href="https://Fakhriahmad.github.io/pathfinding-visualizer/#/"
-                    target="_blank"
-                >
-                    <img src="../assets/pathfinding_box.png" alt="" />
-                </a>
-            </div>
-            <div>
-                <a
-                    href="https://Fakhriahmad.github.io/sorting-visualizer/"
-                    target="_blank"
-                >
-                    <img src="../assets/sorting_box.png" alt="" />
-                </a>
-            </div>
-            <div>
-                <a
-                    href="https://inventory-web-app.herokuapp.com/"
-                    target="_blank"
-                >
-                    <img src="../assets/inventory_box.png" alt="" />
-                </a>
-            </div>
-            <div>
-                <a
-                    href="https://Fakhriahmad.github.io/Radio-Checkbox-Generator/"
-                    target="_blank"
-                >
-                    <img src="../assets/custom_box.png" alt="" />
-                </a>
-            </div>
-            <div>
-                <a href="https://ideas-io.vercel.app/" target="_blank">
-                    <img src="../assets/ideas_box.png" alt="" />
-                </a>
-            </div>
-            <div>
-                <a href="https://statued.vercel.app/" target="_blank">
-                    <img src="../assets/statued_box.png" alt="" />
-                </a>
-            </div>
-            <div>
-                <a
-                    href="https://github.com/FakhriAhmad/Sisfo-Klinik-Full-Stack"
-                    target="_blank"
-                >
-                    <img src="../assets/kliniku_box.png" alt="" />
+                <a href="#" target="_blank">
+                    <img src="../assets/lapangan-futsal.jpg" alt="Lapangan Futsal Project" />
                 </a>
             </div>
         </div>
