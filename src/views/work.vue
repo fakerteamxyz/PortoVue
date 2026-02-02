@@ -97,6 +97,16 @@ export default {
                     codeTools: ["Javascript", "boostraps"],
                     design: "Design by Me",
                 },
+                {
+                    title: "Sistem Informasi SMAN 1 Lareh Sago Halaban",
+                    description:
+                        "School Information System to support transparency, ease of data access, and the best service for students, teachers, and the community.",
+                    source: "",
+                    link: "https://sman1larehsagohalaban.sch.id/",
+                    img: "sman1_thumb.jpg",
+                    codeTools: ["Laravel 10"],
+                    design: "Design by Me",
+                },
             ],
         };
     },
