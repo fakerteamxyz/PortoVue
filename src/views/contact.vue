@@ -44,9 +44,14 @@
                                 <i class="fab fa-linkedin"></i>
                             </a>
                         </div>
-                        <button type="submit" class="btn">
-                            Send Message!
-                        </button>
+                        <div class="action-btn">
+                            <a class="btn" href="https://drive.google.com/uc?export=download&id=1W6uTeokts_PyimR1rSqe9ChwSpEJiqm5" target="_blank" style="margin-right: 1rem;">
+                                Download CV
+                            </a>
+                            <button type="submit" class="btn">
+                                Send Message!
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
