@@ -1,12 +1,15 @@
 .about {
     background-color: var(--main-color);
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     max-width: 1250px;
     margin: auto;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 .tagcloud {
