@@ -80,6 +80,30 @@
         <About class="about" />
         <Portfolio class="portfolio" />
         <Contact class="contact section" />
+        <div class="github-stats section container" style="margin-top: 5rem; text-align: center;">
+            <div class="text">
+                <h1 class="title" style="margin-bottom: 2rem;">
+                    <div class="outline-text" style="font-size: 5rem; opacity: 0.1; position: absolute; left: 50%; transform: translateX(-50%); z-index: -1;">Stats</div>
+                    <span class="hov">G</span>
+                    <span class="hov">i</span>
+                    <span class="hov">t</span>
+                    <span class="hov">H</span>
+                    <span class="hov">u</span>
+                    <span class="hov">b</span>
+                    <span class="space"></span>
+                    <span class="hov">S</span>
+                    <span class="hov">t</span>
+                    <span class="hov">a</span>
+                    <span class="hov">t</span>
+                    <span class="hov">s</span>
+                </h1>
+            </div>
+            <div class="stats-images" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                <img src="https://github-readme-stats.vercel.app/api?username=fakhriaditiarahman&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" alt="GitHub stats" style="max-width: 100%; height: auto;">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=fakhriaditiarahman&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Langs" style="max-width: 100%; height: auto;">
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=fakhriaditiarahman&theme=tokyonight&hide_border=true" alt="GitHub Streak" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
         <div style="height : 3rem"></div>
     </div>
 </template>
