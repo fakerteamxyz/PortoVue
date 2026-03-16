@@ -107,6 +107,16 @@ export default {
                     codeTools: ["Laravel 10"],
                     design: "Design by Me",
                 },
+                {
+                    title: "Web UPTD DINAS BPSBTPH SUMATERA BARAT",
+                    description:
+                        "Sistem Informasi UPTD DINAS BPSBTPH SUMATERA BARAT.",
+                    source: "",
+                    link: "https://sibarakat.aksipangkat.com/",
+                    img: "sibarakat.png",
+                    codeTools: ["Web Technologies"],
+                    design: "Design by Me",
+                },
             ],
         };
     },
