@@ -78,8 +78,6 @@
             </div>
         </div>
         <About class="about" />
-        <Portfolio class="portfolio" />
-        <Contact class="contact section" />
         <div class="github-stats section" style="margin-top: 5rem; width: 100%; display: flex; flex-direction: column; align-items: center;">
             <div style="text-align: center; color: var(--second-color); font-family: 'Poppins', sans-serif; letter-spacing: 1px;">
                 <h1 class="title" style="margin-bottom: 2rem; position: relative; font-size: var(--font-title-section);">
@@ -104,6 +102,8 @@
                 <img src="https://github-readme-streak-stats.herokuapp.com/?user=fakhriaditiarahman&theme=tokyonight&hide_border=true" alt="GitHub Streak" style="max-width: 100%; height: auto;">
             </div>
         </div>
+        <Portfolio class="portfolio" />
+        <Contact class="contact section" />
         <div style="height : 3rem"></div>
     </div>
 </template>
