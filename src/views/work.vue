@@ -103,7 +103,7 @@ export default {
                         "School Information System to support transparency, ease of data access, and the best service for students, teachers, and the community.",
                     source: "",
                     link: "https://sman1larehsagohalaban.sch.id/",
-                    img: "sman1_thumb.jpg",
+                    img: "sman1_new.png",
                     codeTools: ["Laravel 10"],
                     design: "Design by Me",
                 },
