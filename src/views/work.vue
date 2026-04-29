@@ -117,6 +117,15 @@ export default {
                     codeTools: ["Web Technologies"],
                     design: "Design by Me",
                 },
+                {
+                    title: "Arek Lungga",
+                    description: "Arek Lungga Website.",
+                    source: "",
+                    link: "https://areklungga.monoframe.id/",
+                    img: "arek_lungga.png",
+                    codeTools: ["Web Technologies"],
+                    design: "Design by Me",
+                },
             ],
         };
     },
