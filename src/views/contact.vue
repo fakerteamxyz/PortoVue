@@ -30,7 +30,7 @@
                         v-model="message" class="textarea"></textarea>
                     <div class="buttons">
                         <div class="social">
-                            <a class="email media" href="mailto:fakhriaditiarahman12@gmail" target="_blank">
+                            <a class="email media" href="mailto:fakhriaditiarahman12@gmail.com" target="_blank">
                                 <i class="fas fa-envelope"></i>
                             </a>
                             <a class="x media" href="https://x.com/FakhriAR05" target="_blank">
@@ -92,7 +92,7 @@ export default {
             this.toggleStatusPage();
             axios.defaults.headers.post["Content-Type"] = "application/json";
             axios
-                .post("https://formsubmit.co/ajax/Fakhriahmadef@gmail.com", {
+                .post("https://formsubmit.co/ajax/fakhriaditiarahman12@gmail.com", {
                     name: this.name,
                     email: this.email,
                     message: this.message,
