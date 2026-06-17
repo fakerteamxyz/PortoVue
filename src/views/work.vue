@@ -26,7 +26,7 @@
                     </h1>
                     <img
                         :src="require(`@/assets/${work.img}`)"
-                        alt=""
+                        :alt="work.title + ' project screenshot'"
                         class="mobile-img"
                     />
                     <p class="description">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="img">
-                    <img :src="require(`@/assets/${work.img}`)" alt="" />
+                    <img :src="require(`@/assets/${work.img}`)" :alt="work.title + ' project screenshot'" />
                 </div>
             </div>
         </div>

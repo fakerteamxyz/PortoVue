@@ -5,6 +5,7 @@ import About from "../views/about.vue";
 import Skills from "../views/skills.vue";
 import Contact from "../views/contact.vue";
 import Work from "../views/work.vue";
+import NotFound from "../views/NotFound.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/work",
     name: "My Work Page",
     component: Work
+  },
+  {
+    path: "*",
+    name: "404",
+    component: NotFound
   }
 ];
 

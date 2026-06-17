@@ -17,30 +17,34 @@
                         <span class="hov">e</span>
                     </h1>
                 </div>
-                <form @submit="send" class="form">
+                <form @submit="send" class="form" aria-label="Contact form">
                     <input type="hidden" name="_captcha" value="false" />
                     <div class="input-wrapper">
-                        <input type="text" placeholder="Name" required v-model="name" name="name" class="input" />
+                        <label for="name" class="sr-only">Name</label>
+                        <input type="text" placeholder="Name" required v-model="name" name="name" id="name" class="input" />
 
-                        <input type="email" placeholder="Email address" name="email" required v-model="email"
+                        <label for="email" class="sr-only">Email address</label>
+                        <input type="email" placeholder="Email address" name="email" required v-model="email" id="email"
                             class="input" />
                     </div>
-                    <input type="text" placeholder="Subject" required v-model="subject" name="name" class="input" />
-                    <textarea id cols="30" rows="10" placeholder="Your Message" name="message" required
+                    <label for="subject" class="sr-only">Subject</label>
+                    <input type="text" placeholder="Subject" required v-model="subject" name="subject" id="subject" class="input" />
+                    <label for="message" class="sr-only">Message</label>
+                    <textarea id="message" cols="30" rows="10" placeholder="Your Message" name="message" required
                         v-model="message" class="textarea"></textarea>
                     <div class="buttons">
                         <div class="social">
-                            <a class="email media" href="mailto:fakhriaditiarahman12@gmail.com" target="_blank">
+                            <a class="email media" href="mailto:fakhriaditiarahman12@gmail.com" target="_blank" aria-label="Email me">
                                 <i class="fas fa-envelope"></i>
                             </a>
-                            <a class="x media" href="https://x.com/FakhriAR05" target="_blank">
+                            <a class="x media" href="https://x.com/FakhriAR05" target="_blank" aria-label="Follow on X">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a class="github media" href="https://github.com/fakerteamxyz" target="_blank">
+                            <a class="github media" href="https://github.com/fakerteamxyz" target="_blank" aria-label="Follow on GitHub">
                                 <i class="fab fa-github"></i>
                             </a>
                             <a class="Linkedln media" href="https://www.linkedin.com/in/fakhri-aditia-rahman-36b54229b/"
-                                target="_blank">
+                                target="_blank" aria-label="Connect on LinkedIn">
                                 <i class="fab fa-linkedin"></i>
                             </a>
                         </div>

@@ -1,8 +1,8 @@
 <template>
     <div id="app">
-        <div class="cursor" ref="cursor" v-if="isMixSupport"></div>
+        <div class="cursor" ref="cursor" v-if="isMixSupport" aria-hidden="true"></div>
 
-        <div class="welcome" ref="welcome">
+        <div class="welcome" ref="welcome" aria-hidden="true">
             <h1>
                 <span>H</span>
                 <span>i</span>
@@ -10,8 +10,8 @@
             </h1>
         </div>
 
-        <div class="view">
-            <div class="symbols">
+        <main class="view">
+            <div class="symbols" aria-hidden="true">
                 <div class="top">
                     <i class="fas fa-less-than"></i>
                 </div>
@@ -25,13 +25,13 @@
                     <router-view />
                 </keep-alive>
             </transition>
-        </div>
-        <div>
+        </main>
+        <nav>
             <navBar />
-        </div>
+        </nav>
 
-        <div class="trans-back" ref="transition">
-            <img src="./assets/logoName.svg" alt="" />
+        <div class="trans-back" ref="transition" aria-hidden="true">
+            <img src="./assets/logoName.svg" alt="Logo" />
             <p>Let me think &#129300;</p>
             <div class="loadbar">
                 <div class="progress"></div>

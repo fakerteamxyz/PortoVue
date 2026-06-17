@@ -86,7 +86,7 @@
 
 <script>
 // // @ is an alias to /src
-// import anime from "animejs";
+
 import TransitionMixin from "../mixins/transition";
 import Portfolio from "../components/portfolio.vue";
 import About from "./about.vue";
