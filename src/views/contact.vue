@@ -73,60 +73,50 @@
     </div>
 </template>
 
-<script>
-import axios from "axios";
-export default {
-    data() {
-        return {
-            name: "",
-            email: "",
-            subject: "",
-            message: "",
-            statusMessage:
-                "Your Message has been sent successfully, I will contact you very soon !",
-            sendMessageStatus: "Thank you !",
-            isLoading: false,
-            isShowingStatus: false,
-        };
-    },
-    methods: {
-        send(e) {
-            e.preventDefault();
-            this.isLoading = true;
-            this.toggleStatusPage();
-            axios.defaults.headers.post["Content-Type"] = "application/json";
-            axios
-                .post("https://formsubmit.co/ajax/fakhriaditiarahman12@gmail.com", {
-                    name: this.name,
-                    email: this.email,
-                    message: this.message,
-                })
-                .then((res) => {
-                    console.log(res);
-                    this.email = "";
-                    this.name = "";
-                    this.message = "";
-                    this.checkAnswer = "";
-                    this.isLoading = false;
-                    this.isShowingStatus = true;
-                    this.statusMessage =
-                        "Your Message has been sent successfully, I will contact you very soon !";
-                    this.sendMessageStatus = "Thank you !";
-                })
-                .catch((err) => {
-                    console.log(err);
-                    this.isShowingStatus = true;
-                    this.isLoading = false;
-                    this.statusMessage =
-                        "Some error has occured, Please try again next time !";
-                    this.sendMessageStatus = "Sorry !";
-                });
-        },
-        toggleStatusPage() {
-            this.isShowingStatus = !this.isShowingStatus;
-        },
-    },
-};
+<script setup lang="ts">
+import { ref } from 'vue'
+import axios from 'axios'
+
+const name = ref('')
+const email = ref('')
+const subject = ref('')
+const message = ref('')
+const statusMessage = ref('Your Message has been sent successfully, I will contact you very soon !')
+const sendMessageStatus = ref('Thank you !')
+const isLoading = ref(false)
+const isShowingStatus = ref(false)
+
+function send(e: Event) {
+    e.preventDefault()
+    isLoading.value = true
+    toggleStatusPage()
+    axios.defaults.headers.post['Content-Type'] = 'application/json'
+    axios
+        .post('https://formsubmit.co/ajax/fakhriaditiarahman12@gmail.com', {
+            name: name.value,
+            email: email.value,
+            message: message.value,
+        })
+        .then(() => {
+            email.value = ''
+            name.value = ''
+            message.value = ''
+            isLoading.value = false
+            isShowingStatus.value = true
+            statusMessage.value = 'Your Message has been sent successfully, I will contact you very soon !'
+            sendMessageStatus.value = 'Thank you !'
+        })
+        .catch(() => {
+            isShowingStatus.value = true
+            isLoading.value = false
+            statusMessage.value = 'Some error has occured, Please try again next time !'
+            sendMessageStatus.value = 'Sorry !'
+        })
+}
+
+function toggleStatusPage() {
+    isShowingStatus.value = !isShowingStatus.value
+}
 </script>
 
 <style scoped src="../styles/contact.css"></style>

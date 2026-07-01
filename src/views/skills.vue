@@ -34,12 +34,11 @@
                 <a target="_blank" href="https://www.linkedin.com/in/fakhri-aditia-rahman-36b54229b/"
                     class="link linkedln">Linkedln</a>
                 profile for more details or just
-                <span @click="menuBackgroundAnim(4)"><router-link to="/contact" class="link contact">contact
-                        me.</router-link></span>
+                <span @click="menuBackgroundAnim(4)"><router-link to="/contact" class="link contact">
+                        contact me.</router-link></span>
             </p>
         </div>
         <div class="illus">
-            <!-- <h1>My Tools</h1> -->
             <div class="front__end">
                 <div class="react stack" @click="
                         showInfo('React.Js', 'react', 'A Javascript framework')
@@ -181,7 +180,7 @@
         <div class="skills-info" ref="skillInfo">
             <div class="card">
                 <div class="logo">
-                    <img :src="require('../../src/assets/' + icon + '.svg')" />
+                    <img :src="iconSrc" />
                 </div>
                 <h3>{{ title }}</h3>
                 <p>{{ content }}</p>
@@ -193,32 +192,54 @@
     </div>
 </template>
 
-<script>
-import TransitionMixin from "../mixins/transition";
-export default {
-    mixins: [TransitionMixin],
-    data() {
-        return {
-            title: "",
-            icon: "vue",
-            content: "",
-        };
-    },
+<script setup lang="ts">
+import { ref, computed, onMounted } from 'vue'
+import { useTransition } from '../composables/useTransition'
 
-    methods: {
-        showInfo(title, icon, content) {
-            this.title = title;
-            this.icon = icon;
-            this.content = content;
-            let info = this.$refs.skillInfo;
-            info.classList.toggle("show");
-        },
-        closeInfo() {
-            let info = this.$refs.skillInfo;
-            info.classList.toggle("show");
-        },
-    },
-};
+const { menuBackgroundAnim } = useTransition()
+
+const title = ref('')
+const icon = ref('vue')
+const content = ref('')
+const skillInfo = ref<HTMLElement | null>(null)
+
+import reactIcon from '../assets/react.svg'
+import vueIcon from '../assets/vue.svg'
+import javascriptIcon from '../assets/javascript.svg'
+import sassIcon from '../assets/sass.svg'
+import cssIcon from '../assets/css.svg'
+import htmlIcon from '../assets/html.svg'
+import expressIcon from '../assets/express.svg'
+import nodeIcon from '../assets/node.svg'
+import mongodbIcon from '../assets/mongodb.svg'
+
+const iconMap: Record<string, string> = {
+  react: reactIcon,
+  vue: vueIcon,
+  javascript: javascriptIcon,
+  sass: sassIcon,
+  css: cssIcon,
+  html: htmlIcon,
+  express: expressIcon,
+  node: nodeIcon,
+  mongodb: mongodbIcon,
+  'laravel-svgrepo-com': ''
+}
+
+const iconSrc = computed(() => {
+  return iconMap[icon.value] || ''
+})
+
+function showInfo(skillTitle: string, skillIcon: string, skillContent: string) {
+    title.value = skillTitle
+    icon.value = skillIcon
+    content.value = skillContent
+    skillInfo.value?.classList.toggle('show')
+}
+
+function closeInfo() {
+    skillInfo.value?.classList.toggle('show')
+}
 </script>
 
 <style scoped src="../styles/skills.css"></style>

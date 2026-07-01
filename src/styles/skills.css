@@ -13,6 +13,7 @@
     justify-content: center;
     color: var(--second-color);
     width: 40%;
+    font-family: "Poppins", sans-serif;
 }
 
 .text h1 {

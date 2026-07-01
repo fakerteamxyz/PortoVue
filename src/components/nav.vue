@@ -161,37 +161,40 @@
     </div>
 </template>
 
-<script>
-import TransitionMixin from "../mixins/transition";
-export default {
-    mixins: [TransitionMixin],
-    data() {
-        return {
-            navListSize: 0,
-        };
-    },
-    methods: {
-        slide() {
-            this.$refs.mobVer.classList.toggle("show");
-            this.$refs.mobVer.classList.add("trans")
-            
-        },
-        changePage() {
-            this.$refs.mobVer.classList.remove("trans")
-            this.pageTransition();
-            this.$refs.checkbox.checked = false;
-            setTimeout(()=> {
-                this.slide()
-            }, 1000)
-        }
-    },
-    mounted() {
-        this.$store.state.navList = this.$refs.navList;
-        this.$store.state.menuListHeight = this.$refs.size.clientHeight;
-        this.$store.state.lastVisitedPage = this.$refs.size.children[0];
-        this.$store.state.lastVisitedPage.classList.toggle("active");
-    },
-};
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { useAppStore } from '../stores/app'
+import { useTransition } from '../composables/useTransition'
+
+const store = useAppStore()
+const { pageTransition, menuBackgroundAnim } = useTransition()
+
+const navList = ref<HTMLElement | null>(null)
+const menuBag = ref<HTMLElement | null>(null)
+const size = ref<HTMLElement | null>(null)
+const mobVer = ref<HTMLElement | null>(null)
+const checkbox = ref<HTMLInputElement | null>(null)
+
+function slide() {
+    mobVer.value?.classList.toggle('show')
+    mobVer.value?.classList.add('trans')
+}
+
+function changePage() {
+    mobVer.value?.classList.remove('trans')
+    pageTransition()
+    if (checkbox.value) checkbox.value.checked = false
+    setTimeout(() => {
+        slide()
+    }, 1000)
+}
+
+onMounted(() => {
+    store.navList = navList.value
+    store.menuListHeight = size.value?.clientHeight ?? 0
+    store.lastVisitedPage = size.value?.children[0] as HTMLElement | null
+    store.lastVisitedPage?.classList.toggle('active')
+})
 </script>
 
 <style scoped src="../styles/nav.css"></style>

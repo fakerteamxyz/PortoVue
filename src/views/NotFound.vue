@@ -26,12 +26,6 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: "NotFound",
-};
-</script>
-
 <style scoped>
 .not-found {
     min-height: 100vh;

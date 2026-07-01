@@ -40,51 +40,50 @@
     </div>
 </template>
 
-<script>
-import navBar from "./components/nav.vue";
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import { useAppStore } from './stores/app'
+import { useTransition } from './composables/useTransition'
+import navBar from './components/nav.vue'
 
-import TransitionMixin from "./mixins/transition";
+const route = useRoute()
+const store = useAppStore()
+const { menuBackgroundAnim } = useTransition()
 
-export default {
-    mixins: [TransitionMixin],
-    data() {
-        return {
-            isMixSupport: true,
-        };
-    },
+const cursor = ref<HTMLElement | null>(null)
+const welcome = ref<HTMLElement | null>(null)
+const transition = ref<HTMLElement | null>(null)
+const isMixSupport = ref(true)
 
-    components: {
-        navBar,
-    },
+onMounted(() => {
+    if (window.getComputedStyle(document.body).mixBlendMode !== undefined) {
+        isMixSupport.value = true
+    } else {
+        isMixSupport.value = false
+    }
 
-    mounted() {
-        //check if mix-blend-mode porperty support in the brwoser
-        if (window.getComputedStyle(document.body).mixBlendMode !== undefined) {
-            this.isMixSupport = true;
-        } else {
-            this.isMixSupport = false;
-        }
+    store.backgroundTransition = transition.value
 
-        this.$store.state.backgroundTransition = this.$refs.transition;
-
-        let cursor = this.$refs.cursor;
-
-        document.addEventListener("mousemove", (e) => {
-            cursor.setAttribute(
-                "style",
+    const cursorEl = cursor.value
+    if (cursorEl) {
+        document.addEventListener('mousemove', (e) => {
+            cursorEl.setAttribute(
+                'style',
                 `top : ${e.clientY}px; left : ${e.clientX}px`
-            );
-        });
+            )
+        })
+    }
 
-        setTimeout(() => {
-            this.$refs.welcome.classList.toggle("show");
-        }, 2500);
+    setTimeout(() => {
+        welcome.value?.classList.toggle('show')
+    }, 2500)
 
-        let pathLists = ["/", "/about", "/skills", "/work", "/contact"];
-        let currentPath = this.$route.path;
-        let pageIndex = pathLists.indexOf(currentPath);
-        this.menuBackgroundAnim(pageIndex);
-    },
-};
+    const pathLists = ['/', '/about', '/skills', '/work', '/contact']
+    const currentPath = route.path
+    const pageIndex = pathLists.indexOf(currentPath)
+    menuBackgroundAnim(pageIndex)
+})
 </script>
+
 <style src="./styles/app.css"></style>

@@ -48,7 +48,7 @@
                             <span class="hov">v</span>
                             <span class="hov">e</span>
                             <span class="hov">l</span>
-                            <!-- <span class="hov">o</span> -->
+                            <span class="hov">o</span>
 
                             <div class="eye">
                                 <div class="pupil">
@@ -64,8 +64,6 @@
                             <p>Front End Developer</p>
                         </div>
                     </div>
-
-                    <!-- <div class="cursor"></div> -->
                 </div>
                 <div @click="menuBackgroundAnim(1)" ref="btn" class="btn">
                     <router-link to="/about">
@@ -84,51 +82,42 @@
     </div>
 </template>
 
-<script>
-// // @ is an alias to /src
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { useAppStore } from '../stores/app'
+import { useTransition } from '../composables/useTransition'
+import Portfolio from '../components/portfolio.vue'
+import About from './about.vue'
+import Contact from './contact.vue'
 
-import TransitionMixin from "../mixins/transition";
-import Portfolio from "../components/portfolio.vue";
-import About from "./about.vue";
-import Contact from "./contact.vue";
+const store = useAppStore()
+const { menuBackgroundAnim } = useTransition()
 
-export default {
-    name: "Home",
-    mixins: [TransitionMixin],
-    components: {
-        Portfolio,
-        About,
-        Contact,
-    },
-    data() {
-        return {
-            toggle: false,
-            counter: 1,
-            isBoxSupport: true,
-        };
-    },
+const btn = ref<HTMLElement | null>(null)
+const isBoxSupport = ref(true)
 
-    mounted() {
-        this.$store.state.hover.push(this.$refs.btn);
+onMounted(() => {
+    if (btn.value) {
+        store.hover.push(btn.value)
+    }
 
-        if (window.getComputedStyle(document.body).transformBox !== undefined) {
-            this.isBoxSupport = true;
-        } else {
-            this.isBoxSupport = false;
-        }
+    if (window.getComputedStyle(document.body).transformBox !== undefined) {
+        isBoxSupport.value = true
+    } else {
+        isBoxSupport.value = false
+    }
 
-        const eyes = document.querySelectorAll(".pupil");
-        document.onmousemove = function(event) {
-            var x = (event.clientX * 100) / window.innerWidth + "%";
-            var y = (event.clientY * 100) / window.innerHeight + "%";
-            eyes.forEach((eye) => {
-                eye.style.left = x;
-                eye.style.top = y;
-                eye.style.transform = "translate(-" + x + ", -" + y + ")";
-            });
-        };
-    },
-};
+    const eyes = document.querySelectorAll('.pupil')
+    document.onmousemove = function(event: MouseEvent) {
+        const x = (event.clientX * 100) / window.innerWidth + '%'
+        const y = (event.clientY * 100) / window.innerHeight + '%'
+        eyes.forEach((eye) => {
+            (eye as HTMLElement).style.left = x
+            ;(eye as HTMLElement).style.top = y
+            ;(eye as HTMLElement).style.transform = 'translate(-' + x + ', -' + y + ')'
+        })
+    }
+})
 </script>
 
 <style scoped src="../styles/home.css"></style>

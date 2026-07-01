@@ -25,24 +25,23 @@
         </div>
         <div class="gallery">
             <div>
-                <a href="#" target="_blank">
+                <a href="https://fakertype.vercel.app/" target="_blank">
                     <img src="../assets/fakertype.png" alt="Fakertype Project" />
                 </a>
             </div>
             <div>
-                <a href="#" target="_blank">
+                <a href="https://github.com/fakerteamxyz/Sewa-Lapangan-Futsal/" target="_blank">
                     <img src="../assets/lapangan-futsal.jpg" alt="Lapangan Futsal Project" />
                 </a>
             </div>
         </div>
     </div>
 </template>
-<script>
-import TransitionMixin from "../mixins/transition";
 
-export default {
-    mixins: [TransitionMixin],
-};
+<script setup lang="ts">
+import { useTransition } from '../composables/useTransition'
+
+const { menuBackgroundAnim } = useTransition()
 </script>
 
 <style scoped src="../styles/work.css"></style>
